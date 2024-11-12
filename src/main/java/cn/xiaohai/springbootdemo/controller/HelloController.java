@@ -32,6 +32,7 @@ public class HelloController {
     //方法形参名称与请求参数名称不匹配，使用@RequestParam注解完成映射
     //改注解的required的属性，默认值为true，表示请求参数必须传递，否则将抛出异常。
 
+    //
     @RequestMapping("/")
     public String getHello(HttpServletRequest request) {
 
@@ -49,6 +50,8 @@ public class HelloController {
     //解决方案：可以使用Spring提供的@RequestParam注解完成映射
     //
     //在方法形参前面加上 @RequestParam 然后通过value属性执行请求参数名，从而完成映射。代码如下：
+
+    //传送简单参数
     @RequestMapping("/hello")
     public String hello(String name,Integer age) {
 
@@ -60,25 +63,8 @@ public class HelloController {
 
 
 
-    @RequestMapping("/sdmz")
-    public String sdmz(HttpRequest request, HttpResponse response) {
-//        DispatcherServlet:核心控制器，负责接受页面发送的请求，跟据执行的规则（访问路径），将请求转发给后面的请求处理器(Controller),请求处理器处理玩请求之后，最终再由DispatcherServlet给浏览器响应数据。
 
-
-
-//        请求(HttpServleRequest):获取请求数据
-//         响应(HttpServleReseponse):设置响应数据
-//        BS架构: Browser/Server,浏览器/服务器架构模式。客户端只需要浏览器，应用程序的逻辑和数据都储存在服务端。
-
-
-
-
-
-        return "中国四大名著：《红楼梦》、《西游记》、《三国演义》、《水浒传》";
-
-    }
-
-
+    //传送数组
     @RequestMapping("/array")
     public String array(String[] hhobby) {
         //遍历数组
@@ -171,9 +157,13 @@ public class HelloController {
 
     }
 
-    //地址和参数: IP_ADDRESS:8080/json?id=1&name=小明&age=18
+    //地址和参数: IP_ADDRESS:8080/json
 
     //传的值 {"id":1,"name":"小明","age":18}
+
+
+
+
 
 }
 
